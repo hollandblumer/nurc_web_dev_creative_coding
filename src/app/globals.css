@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #924848;
+  /* Your preferred workshop palette */
+  --color-accent: #8729f1;
+  --color-brand-black: #030303;
+  --color-technic-grey: #d1d3d4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--color-accent);
+  --color-brand-black: var(--color-brand-black);
+  --color-technic-grey: var(--color-technic-grey);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  @apply antialiased;
+}
+
+/* Base styles for the "mechanical" dropdown animation */
+.sub-section {
+  @apply transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border-b border-black/5 overflow-hidden;
+}
+
+.details p {
+  @apply mt-4 text-sm leading-relaxed text-gray-500 max-w-[500px];
+}
