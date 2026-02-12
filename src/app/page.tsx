@@ -67,7 +67,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-transparent selection:bg-[#8729f1] selection:text-white font-manrope">
       <div className="flex flex-col items-center py-20">
-        <div className="w-[1000px]">
+        <div className="w-full max-w-[1000px] px-6">
           {/* Manrope Styled Header */}
           <div className="mb-16 text-center">
             <h1 className="text-5xl font-extrabold tracking-tight text-gray-40">

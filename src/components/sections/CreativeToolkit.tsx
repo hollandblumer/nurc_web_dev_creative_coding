@@ -75,17 +75,9 @@ export default function CreativeToolkit() {
             computer how "light" should bounce off a wine bottle (like on{" "}
             <em>Chartogne Taillet</em>) or how physics should move a cursor, you
             "import" a tool. The library handles the heavy lifting, so you can
-            focus on the fun part:{" "}
-            <strong className="text-black uppercase">directing the art.</strong>
+            focus on the design part.
           </p>
         </div>
-
-        <p className="text-base leading-relaxed mb-4 text-black">
-          The websites above aren't just standard HTML. To get that fluid motion
-          and 3D depth, developers use these pre-built creative engines. Imagine
-          you wanted to build a car: you *could* forge the steel and engineer
-          the pistons from scratch, but you’d never actually get to drive.
-        </p>
       </section>
 
       {/* The Tools Stack */}
@@ -96,55 +88,76 @@ export default function CreativeToolkit() {
             Matter.js: Advanced Physics Engine
           </h4>
           <p className="text-base leading-relaxed text-black max-w-2xl">
-            You’ve seen basic JS physics, but <strong>Matter.js</strong> takes
-            it to the next level. It’s a 2D physics engine that handles complex
-            collisions, rigid bodies, and constraints (like springs and
-            elastic). Instead of manually coding gravity, you create a "world"
-            and let the engine calculate how objects tumble and bounce.
+            A 2D physics engine that handles complex collisions and rigid
+            bodies. Instead of manually coding gravity, you create a "world" and
+            let objects tumble naturally.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="https://brm.io/matter-js/demo/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Official Demos →
-            </a>
-            <a
-              href="https://codepen.io/collection/nxmByV"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Physics Experiments →
-            </a>
+            {[
+              {
+                label: "Interactive Blocks",
+                url: "https://codepen.io/gayane-gasparyan/pen/LYJEoZM",
+              },
+              {
+                label: "Responsive body",
+                url: "https://codepen.io/natszafraniec/pen/yLmoKMw",
+              },
+              {
+                label: "Chain Physics",
+                url: "https://codepen.io/danielgivens/pen/geKrRx",
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
+              >
+                {link.label} →
+              </a>
+            ))}
           </div>
         </div>
 
         {/* p5.js */}
         <div className="space-y-3">
           <h4 className="text-xl font-bold text-black uppercase tracking-tight font-['Manrope']">
-            p5.js: The Digital Sketchbook
+            p5.js: Generative Art & Sketching
           </h4>
           <p className="text-base leading-relaxed text-black max-w-2xl">
-            The entry point for artists. It turns code into a canvas. Use it for
-            2D patterns, kinetic type, and visuals that react to sound or your
-            mouse. It makes "drawing" with code intuitive.
+            The powerhouse of <strong>Generative Art</strong>. p5.js allows you
+            to use algorithms to "grow" visuals. By using Perlin noise for
+            organic motion or recursive functions for fractals, you can create
+            art that is never the same twice.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="https://p5js.org/examples/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Core Examples →
-            </a>
-            <a
-              href="https://openprocessing.org/browse/#"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Creative Gallery →
-            </a>
+            {[
+              {
+                label: "Flow Fields",
+                url: "https://codepen.io/tsuhre/pen/xgmEPe",
+              },
+              {
+                label: "Recursive Trees",
+                url: "https://codepen.io/hollandblumer/pen/myPzeXd",
+              },
+              {
+                label: "Geometric Growth",
+                url: "https://codepen.io/hollandblumer/pen/WbwOMYx",
+              },
+              {
+                label: "Organic Shapes",
+                url: "https://openprocessing.org/sketch/2182022",
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
+              >
+                {link.label} →
+              </a>
+            ))}
           </div>
         </div>
 
@@ -154,26 +167,33 @@ export default function CreativeToolkit() {
             Three.js: 3D Environments
           </h4>
           <p className="text-base leading-relaxed text-black max-w-2xl">
-            The industry standard for 3D on the web. It handles cameras,
-            lighting, and textures, allowing you to build entire interactive
-            worlds. This is likely what was used for those high-end 3D site
-            designs.
+            The standard for 3D on the web. It manages cameras and lighting to
+            build interactive worlds within the browser.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="https://threejs.org/examples/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Visual Showcase →
-            </a>
-            <a
-              href="https://clara.io/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              3D Modeling Tool →
-            </a>
+            {[
+              {
+                label: "Abstract Geometry",
+                url: "https://openprocessing.org/sketch/2752798",
+              },
+              {
+                label: "Particles",
+                url: "https://codepen.io/sanprieto/pen/XWNjBdb",
+              },
+              {
+                label: "Infinite Terrain",
+                url: "https://codepen.io/bsehovac/pen/EMyWVv",
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
+              >
+                {link.label} →
+              </a>
+            ))}
           </div>
         </div>
 
@@ -183,25 +203,33 @@ export default function CreativeToolkit() {
             Shaders: GPU Magic (GLSL)
           </h4>
           <p className="text-base leading-relaxed text-black max-w-2xl">
-            Code that runs directly on your graphics card. It’s how you get
-            those mesmerizing, liquid-like distortions and "dreamy" pixel
-            effects. It’s math-heavy but visually unbeatable.
+            Mesmerizing, liquid-like distortions that run directly on the
+            graphics card. This is how you achieve "dreamy" pixel effects.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="https://thebookofshaders.com/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              The Book of Shaders →
-            </a>
-            <a
-              href="https://www.shadertoy.com/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              ShaderToy Community →
-            </a>
+            {[
+              {
+                label: "Liquid Metal",
+                url: "https://codepen.io/ksenia-k/pen/vYwgrWv",
+              },
+              {
+                label: "Noise Gradients",
+                url: "https://openprocessing.org/sketch/2476859",
+              },
+              {
+                label: "Pixel Sort",
+                url: "https://openprocessing.org/sketch/1229865",
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
+              >
+                {link.label} →
+              </a>
+            ))}
           </div>
         </div>
 
@@ -212,83 +240,52 @@ export default function CreativeToolkit() {
           </h4>
           <p className="text-base leading-relaxed text-black max-w-2xl">
             The secret to making digital work feel "real." Use these to add
-            grain, grit, and organic blur to otherwise "too-perfect" web
-            elements. Perfect for that tactile, print-like feel.
+            grain, grit, and organic blur to perfect web elements.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="https://yoksel.github.io/svg-filters/#/"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Filter Playground →
-            </a>
-            <a
-              href="https://codepen.io/collection/XByByz"
-              target="_blank"
-              className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
-            >
-              Gooey & Grainy Effects →
-            </a>
+            {[
+              {
+                label: "Gooey Effect",
+                url: "https://codepen.io/yoksel/pen/BOjmqj",
+              },
+              {
+                label: "Grainy Texture",
+                url: "https://codepen.io/Anthony-Osceola/pen/YzMmorG",
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                className="text-[10px] font-black uppercase border-b-2 border-gray-200 hover:border-black transition-colors"
+              >
+                {link.label} →
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Footer & Learning */}
       <section className="space-y-4 border-t border-gray-200 pt-8">
         <h3 className="text-xl font-bold text-black font-['Manrope']">
           How to Learn: The "Tinker" Method
         </h3>
-        <p className="text-base leading-relaxed">
-          You don't need to know all the code to start. The best way to learn is
-          to <strong>tinker with the settings</strong>.
-        </p>
         <ul className="list-disc pl-5 space-y-2 text-gray-700">
           <li className="text-base">
-            <strong>Find a Demo:</strong> Start with someone else's code from a
-            place like Codrops.
+            <strong>Find a Demo:</strong> Start with someone else's code.
           </li>
           <li className="text-base">
             <strong>Break It:</strong> Change the{" "}
-            <span className="text-black font-bold">fill color</span>. Adjust the{" "}
-            <span className="text-black font-bold">speed</span>. Double the{" "}
-            <span className="text-black font-bold">gravity</span>.
+            <span className="text-black font-bold">random seed</span> or{" "}
+            <span className="text-black font-bold">velocity</span>.
           </li>
           <li className="text-base">
             <strong>Reverse Engineer:</strong> Observe what happens when you
-            change a single number. This "settings-first" approach is how the
-            best creative coders actually work.
+            change a single number.
           </li>
         </ul>
       </section>
-
-      {/* External Links */}
-      <footer className="pt-6 border-t border-gray-100">
-        <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 font-['Manrope']">
-          Inspiration Galleries
-        </p>
-        <div className="flex gap-8">
-          <a href="https://www.awwwards.com" target="_blank" className="group">
-            <span className="text-black font-bold block font-['Manrope'] text-base">
-              Awwwards
-            </span>
-            <span className="text-xs text-gray-500 group-hover:text-black transition-colors">
-              The World's Best Design
-            </span>
-          </a>
-          <a
-            href="https://tympanus.net/codrops/"
-            target="_blank"
-            className="group"
-          >
-            <span className="text-black font-bold block font-['Manrope'] text-base">
-              Codrops
-            </span>
-            <span className="text-xs text-gray-500 group-hover:text-black transition-colors">
-              Experimental Lab
-            </span>
-          </a>
-        </div>
-      </footer>
     </div>
   );
 }
