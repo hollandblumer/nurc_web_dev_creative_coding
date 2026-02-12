@@ -31,7 +31,7 @@ jobs:
         run: npm i -g npm@11.5.2
 
       - name: Install deps
-        run: npm ci
+        run: npm install
 
       - name: Build (static export)
         run: npm run build
