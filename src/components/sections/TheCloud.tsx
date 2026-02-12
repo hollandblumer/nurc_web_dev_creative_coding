@@ -1,21 +1,60 @@
 "use client";
+import Globe from "../Globe"; // Adjust path as needed
 
 export default function TheCloud() {
   return (
     <div className="space-y-8 pb-4">
-      {/* --- Section 1: Simple Explanation --- */}
-      <div className="space-y-4">
-        <p className="text-[1.1rem] font-medium leading-tight text-black">
-          How the web actually travels:{" "}
-          <span className="underline decoration-[#8729f1] decoration-2 text-black">
-            Request & Response.
-          </span>
-        </p>
+      {/* --- Section 0: Clouds + Cables (lead-in BEFORE request/response) --- */}
+      <div className="space-y-3">
+        <h3 className="text-lg font-semibold text-gray-700 tracking-wide">
+          What is the internet and how does it work?
+        </h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          To understand creative coding, we first have to understand the
-          physical reality of the internet. Every time you refresh a page, you
-          are initiating a high-speed mechanical journey from your fingertips to
-          a warehouse thousands of miles away.
+          The internet isn’t a place, it’s a system that moves information
+          around the world. Most people think of the internet as a cloud, but
+          even with cloud computing, the internet is mostly physical—made up of
+          cables buried underground and stretched across oceans. Information
+          moves through fiber-optic and copper cables, along with satellites and
+          cellular networks, to get from one place to another.
+        </p>
+      </div>
+
+      <Globe />
+
+      <div className="space-y-3">
+        <h3 className="text-lg font-semibold text-gray-700 tracking-wide">
+          When you open your laptop and open Chrome browser to facebook.com,
+          what actually happens?
+        </h3>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          In simple terms, when you open your laptop, open Google Chrome, and
+          type something like facebook.com into the search bar and hit enter,
+          you are requesting to visit that website. “Request” is a commonly used
+          word for this. That request is sent from your laptop over Wi-Fi radio
+          waves to a nearby access point, like your home router or a public
+          Wi-Fi router. That router is connected to equipment outside your
+          building run by an internet service provider. From there, the request
+          travels mostly through physical cables to reach another computer. This
+          computer is not like a laptop or desktop. It is a powerful machine
+          called a server, which receives your request and sends a response back
+          through the same network so you can view facebook.com.
+        </p>
+      </div>
+
+      {/* --- Section 1: Request & Response --- */}
+      <div className="space-y-4">
+        <span className="underline decoration-[#8729f1] decoration-2 text-black">
+          Request & Response.
+        </span>
+
+        {/* Simple terms: what happens when you “go to the internet” */}
+        <p className="text-sm text-gray-500 leading-relaxed">
+          In simple terms: when you type a website into your computer and hit
+          enter, your device sends a{" "}
+          <strong className="text-black">request</strong> to a{" "}
+          <strong className="text-black">server</strong>. The server finds the
+          files for that website and sends a{" "}
+          <strong className="text-black">response</strong> back to you.
         </p>
       </div>
 
@@ -89,37 +128,44 @@ export default function TheCloud() {
 
         <div className="mt-12 w-full border-t border-dashed border-black/10 pt-2 flex justify-between px-2 opacity-50">
           <span className="text-[8px] uppercase font-bold text-black">
-            1. Radio Waves (Air)
+            1. Wireless Signals (Air)
           </span>
           <span className="text-[8px] uppercase font-bold text-[#8729f1]">
-            2. Light Pulses (Glass)
+            2. Fiber (Cables)
           </span>
         </div>
       </div>
 
-      {/* --- Section 3: Core Curriculum --- */}
+      {/* --- Section 3: Servers (simple next step) --- */}
       <div className="space-y-4">
+        <p className="text-sm text-gray-500 leading-relaxed">
+          A <strong className="text-black">server</strong> is just a powerful
+          computer that stores website files (HTML, CSS, images, scripts) and
+          sends them back when someone requests them. Most servers live inside{" "}
+          <strong className="text-black">data centers</strong> (giant warehouses
+          packed with machines).
+        </p>
+
         <ul className="list-disc ml-5 space-y-2 text-sm text-gray-600">
           <li>
-            <strong className="text-black uppercase">Physicality:</strong> 99%
-            of international data travels through fiber-optic cables on the
-            ocean floor.
+            <strong className="text-black uppercase">Physicality:</strong> A lot
+            of the “long distance” travel happens through fiber-optic cables,
+            including cables under the ocean.
           </li>
           <li>
             <strong className="text-black uppercase">Data Centers:</strong>{" "}
-            Massive warehouses filled with servers that require immense cooling
-            and power.
+            Warehouses filled with servers that need serious cooling + power.
           </li>
           <li>
-            <strong className="text-black uppercase">The Handshake:</strong> How
-            your browser (Client) asks a Server for files via an IP address.
+            <strong className="text-black uppercase">The Handshake:</strong>{" "}
+            Your browser (Client) and a Server agree on how to talk before files
+            start moving.
           </li>
         </ul>
       </div>
 
       {/* --- Section 4: The Hook with Cloud Visuals --- */}
       <div className="relative bg-[#8729f1]/5 p-6 border-l-4 border-[#8729f1] overflow-hidden">
-        {/* Animated Background Clouds */}
         <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
           <svg
             width="200"
@@ -139,9 +185,8 @@ export default function TheCloud() {
         </h4>
         <p className="text-[12px] text-gray-600 mt-2 italic z-10 relative">
           Technically, <span className="font-bold text-[#8729f1]">Yes.</span>{" "}
-          Because WiFi sends data as <strong>Radio Waves</strong>, your code
-          physically travels through the sky before it ever hits a physical
-          wire.
+          Wireless signals can carry data through the air, before it routes into
+          physical cables and data centers.
         </p>
       </div>
 

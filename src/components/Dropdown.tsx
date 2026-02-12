@@ -18,11 +18,7 @@ export default function Dropdown({
       className={`sub-section border-b border-black/5 mb-4 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] 
       ${expanded ? "max-h-[2500px]" : "max-h-[60px]"}`}
     >
-      {/* FIX 1: Removed opacity-0 from the parent so the title is ALWAYS visible.
-          FIX 2: Increased max-height to 2500px so the long CodePen blocks never cut off.
-      */}
-
-      {/* Header Row - This must always stay visible */}
+      {/* Header Row - Clicking this triggers the gear animation */}
       <div
         className="flex justify-between items-center cursor-pointer py-4 h-[60px]"
         onClick={onToggle}
@@ -31,18 +27,16 @@ export default function Dropdown({
           {title}
         </h2>
 
-        {/* Plus Button */}
-        <div
-          className={`w-6 h-6 flex items-center justify-center rounded-sm transition-all duration-300 
-          ${expanded ? "rotate-45 bg-[#8729f1] text-white" : "bg-[#030303] text-[#8729f1]"}`}
-        >
-          +
-        </div>
+        {/* We leave this empty space so the title doesn't span the whole width, 
+            keeping the gear area clear on the right */}
+        <div className="w-6 h-6" />
       </div>
 
-      {/* Content Area - Only this part should fade or hide */}
+      {/* Content Area */}
       <div
-        className={`pt-4 pb-10 transition-opacity duration-500 ${expanded ? "opacity-100" : "opacity-0"}`}
+        className={`pt-4 pb-10 transition-opacity duration-500 ${
+          expanded ? "opacity-100" : "opacity-0"
+        }`}
       >
         {children}
       </div>

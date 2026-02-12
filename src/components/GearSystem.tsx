@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 export default function GearSystem({ activeSectionIndex, totalSections }: any) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const speeds = useRef<number[]>(new Array(totalSections).fill(0.03));
+  const speeds = useRef<number[]>(new Array(totalSections).fill(0.04));
   const angles = useRef<number[]>(new Array(totalSections).fill(0));
 
   useEffect(() => {
@@ -23,14 +23,11 @@ export default function GearSystem({ activeSectionIndex, totalSections }: any) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // --- FIX: Fixed Resolution Sync ---
-    // We set a large enough buffer once so the browser doesn't panic during expansion
     const updateCanvasSize = () => {
       const rect = canvas.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
-      // We pad the height so expansion doesn't trigger a re-allocation immediately
       canvas.width = rect.width * dpr;
-      canvas.height = (rect.height + 500) * dpr;
+      canvas.height = (rect.height + 1000) * dpr; // Buffer for expansion
       ctx.scale(dpr, dpr);
     };
 
@@ -46,12 +43,11 @@ export default function GearSystem({ activeSectionIndex, totalSections }: any) {
         const elRect = el.getBoundingClientRect();
         return {
           x: centerX,
-          y: elRect.top - rect.top + 30,
+          y: elRect.top - rect.top + 30, // Centers gear in the 60px header
           r: 14,
         };
       });
 
-      // We clear the whole buffer
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // 1. Draw Belts
@@ -70,27 +66,66 @@ export default function GearSystem({ activeSectionIndex, totalSections }: any) {
         ctx.stroke();
       }
 
-      // 2. Draw Gears
+      // 2. Draw Gears and Symbols
       pulleys.forEach((p, i) => {
+        const isExpanded = i === activeSectionIndex;
+
+        // Gear Outer Body (Rotates)
         ctx.save();
         ctx.translate(p.x, p.y);
         angles.current[i] += speeds.current[i];
         ctx.rotate(angles.current[i]);
 
+        // Main Gear Circle
         ctx.beginPath();
         ctx.arc(0, 0, p.r, 0, Math.PI * 2);
         ctx.fillStyle = "#D1D3D4";
         ctx.fill();
         ctx.strokeStyle = "#808285";
+        ctx.lineWidth = 1;
         ctx.stroke();
 
+        // Add some "gear teeth" marks for visual spin feedback
+        for (let j = 0; j < 8; j++) {
+          ctx.rotate(Math.PI / 4);
+          ctx.beginPath();
+          ctx.moveTo(p.r - 4, 0);
+          ctx.lineTo(p.r, 0);
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // Inner Hub & Symbol (Static / Non-Rotating for readability)
+        ctx.save();
+        ctx.translate(p.x, p.y);
+
+        // Purple Circle
         ctx.beginPath();
-        ctx.arc(0, 0, 6, 0, Math.PI * 2);
+        ctx.arc(0, 0, 8, 0, Math.PI * 2);
         ctx.fillStyle = "#8729f1";
         ctx.fill();
         ctx.strokeStyle = "#030303";
         ctx.lineWidth = 1.5;
         ctx.stroke();
+
+        // White Symbol (+/-)
+        ctx.strokeStyle = "#FFFFFF";
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+
+        // Horizontal Line
+        ctx.beginPath();
+        ctx.moveTo(-4, 0);
+        ctx.lineTo(4, 0);
+        ctx.stroke();
+
+        // Vertical Line (Only if not expanded)
+        if (!isExpanded) {
+          ctx.beginPath();
+          ctx.moveTo(0, -4);
+          ctx.lineTo(0, 4);
+          ctx.stroke();
+        }
 
         ctx.restore();
       });
@@ -103,7 +138,7 @@ export default function GearSystem({ activeSectionIndex, totalSections }: any) {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", updateCanvasSize);
     };
-  }, [totalSections]);
+  }, [totalSections, activeSectionIndex]);
 
   return (
     <canvas
