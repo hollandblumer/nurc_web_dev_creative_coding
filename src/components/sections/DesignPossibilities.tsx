@@ -2,7 +2,7 @@
 
 import { InstagramEmbed } from "react-social-media-embed";
 
-const InstagramPoster = ({ url }) => (
+const InstagramPoster = ({ url }: { url: string }) => (
   <div className="group relative overflow-hidden rounded-sm border border-zinc-200 bg-zinc-50 aspect-[4/5]">
     <div className="w-full h-full scale-[1.15] -mt-7">
       <InstagramEmbed url={url} width="100%" captioned={false} />
