@@ -34,8 +34,8 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning={true} // Add this line
       >
-        {/* The background lives here to stay persistent across navigation */}
         <VisualBackground />
         {children}
       </body>

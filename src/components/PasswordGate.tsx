@@ -77,7 +77,8 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-[#1a1a1c] font-mono flex items-center justify-center h-screen w-screen overflow-hidden">
+    <div className="fixed inset-0 z-[100] bg-[#1a1a1c] font-mono flex items-center justify-center h-[100dvh] w-full overflow-hidden">
+      {" "}
       <style jsx>{`
         @keyframes float {
           0% {
@@ -106,7 +107,6 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
           text-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
         }
       `}</style>
-
       {/* Background Matrix */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {bgElements.map((el, i) => (
@@ -129,7 +129,6 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
           </span>
         ))}
       </div>
-
       <div className="flex flex-col items-center relative z-10 w-full max-w-xl px-4">
         {/* Header */}
         <div className="mb-12 text-center space-y-3 font-sans">
