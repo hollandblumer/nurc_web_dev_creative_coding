@@ -3,13 +3,13 @@ import Globe from "../Globe"; // Adjust path as needed
 
 export default function TheCloud() {
   return (
-    <div className="space-y-8 pb-4">
-      {/* --- Section 0: Clouds + Cables (lead-in BEFORE request/response) --- */}
+    <div className="space-y-10 pb-10 max-w-2xl mx-auto font-['Red_Hat_Mono'] text-gray-900 leading-relaxed">
+      {/* --- Section 0: Clouds + Cables --- */}
       <div className="space-y-3">
-        <h3 className="text-lg font-semibold text-gray-700 tracking-wide">
+        <h3 className="text-xl font-bold text-black tracking-tight font-['Manrope']">
           What is the internet and how does it work?
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-base text-gray-600 leading-relaxed">
           The internet isn’t a place, it’s a system that moves information
           around the world. Most people think of the internet as a cloud, but
           even with cloud computing, the internet is mostly physical—made up of
@@ -22,33 +22,30 @@ export default function TheCloud() {
       <Globe />
 
       <div className="space-y-3">
-        <h3 className="text-lg font-semibold text-gray-700 tracking-wide">
+        <h3 className="text-xl font-bold text-black tracking-tight font-['Manrope']">
           When you open your laptop and open Chrome browser to facebook.com,
           what actually happens?
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed">
-          In simple terms, when you open your laptop, open Google Chrome, and
-          type something like facebook.com into the search bar and hit enter,
-          you are requesting to visit that website. “Request” is a commonly used
-          word for this. That request is sent from your laptop over Wi-Fi radio
-          waves to a nearby access point, like your home router or a public
-          Wi-Fi router. That router is connected to equipment outside your
-          building run by an internet service provider. From there, the request
-          travels mostly through physical cables to reach another computer. This
-          computer is not like a laptop or desktop. It is a powerful machine
-          called a server, which receives your request and sends a response back
-          through the same network so you can view facebook.com.
+        <p className="text-base text-gray-600 leading-relaxed">
+          In simple terms, when you type something like facebook.com into the
+          search bar and hit enter, you are making a{" "}
+          <strong className="text-black">request</strong>. That request is sent
+          from your laptop over Wi-Fi radio waves to a nearby access point,
+          travels through physical cables, and reaches a powerful machine called
+          a<strong className="text-black"> server</strong>. The server receives
+          your request and sends a{" "}
+          <strong className="text-black">response</strong> back through the same
+          network.
         </p>
       </div>
 
       {/* --- Section 1: Request & Response --- */}
       <div className="space-y-4">
-        <span className="underline decoration-[#8729f1] decoration-2 text-black">
+        <span className="text-base font-bold underline decoration-[#8729f1] decoration-2 text-black font-['Manrope']">
           Request & Response.
         </span>
 
-        {/* Simple terms: what happens when you “go to the internet” */}
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-base text-gray-600 leading-relaxed">
           In simple terms: when you type a website into your computer and hit
           enter, your device sends a{" "}
           <strong className="text-black">request</strong> to a{" "}
@@ -59,7 +56,7 @@ export default function TheCloud() {
       </div>
 
       {/* --- Section 2: The Visual Journey --- */}
-      <div className="relative w-full h-72 bg-white/50 rounded border border-black/5 flex flex-col justify-center items-center px-4 overflow-hidden">
+      <div className="relative w-full h-80 bg-gray-50 rounded-xl border-2 border-gray-200 flex flex-col justify-center items-center px-4 overflow-hidden my-8">
         {/* Connection Paths */}
         <div className="absolute w-[80%] h-[2px] top-[50%] z-0 flex justify-between items-center">
           {/* 1. WiFi Waves */}
@@ -92,53 +89,57 @@ export default function TheCloud() {
           </div>
         </div>
 
-        <div className="w-full flex justify-between items-start z-10">
+        <div className="w-full flex justify-between items-start z-10 font-['Manrope']">
           <div className="flex flex-col items-center">
-            <span className="text-[9px] font-bold text-black bg-gray-100 px-2 py-0.5 rounded mb-2 uppercase tracking-widest">
+            <span className="text-[10px] font-bold text-black bg-white border border-black/10 px-2 py-0.5 rounded mb-2 uppercase tracking-widest">
               Client
             </span>
-            <div className="w-14 h-14 border-2 border-black bg-white flex items-center justify-center text-xl">
+            <div className="w-16 h-16 border-2 border-black bg-white flex items-center justify-center text-2xl shadow-[4px_4px_0px_rgba(0,0,0,0.1)]">
               💻
             </div>
-            <p className="text-[10px] font-black uppercase mt-2">Your Device</p>
+            <p className="text-[10px] font-black uppercase mt-3 tracking-tighter">
+              Your Device
+            </p>
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-[9px] font-bold text-gray-400 mb-2 uppercase tracking-widest">
+            <span className="text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest">
               Gateway
             </span>
-            <div className="w-14 h-14 border-2 border-black/20 bg-white flex items-center justify-center text-xl">
+            <div className="w-16 h-16 border-2 border-black/10 bg-white flex items-center justify-center text-2xl">
               📶
             </div>
-            <p className="text-[10px] font-black uppercase mt-2">Wifi Router</p>
+            <p className="text-[10px] font-black uppercase mt-3 tracking-tighter text-gray-400">
+              Wifi Router
+            </p>
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-[9px] font-bold text-[#8729f1] bg-[#8729f1]/10 px-2 py-0.5 rounded mb-2 uppercase tracking-widest">
+            <span className="text-[10px] font-bold text-[#8729f1] bg-[#8729f1]/10 px-2 py-0.5 rounded mb-2 uppercase tracking-widest">
               Server
             </span>
-            <div className="w-14 h-14 border-2 border-[#8729f1] bg-white flex items-center justify-center text-xl shadow-[0_0_15px_rgba(135,41,241,0.2)]">
+            <div className="w-16 h-16 border-2 border-[#8729f1] bg-white flex items-center justify-center text-2xl shadow-[4px_4px_0px_rgba(135,41,241,0.2)]">
               🏢
             </div>
-            <p className="text-[10px] font-black uppercase text-[#8729f1]">
+            <p className="text-[10px] font-black uppercase mt-3 tracking-tighter text-[#8729f1]">
               Data Center
             </p>
           </div>
         </div>
 
-        <div className="mt-12 w-full border-t border-dashed border-black/10 pt-2 flex justify-between px-2 opacity-50">
-          <span className="text-[8px] uppercase font-bold text-black">
-            1. Wireless Signals (Air)
+        <div className="mt-14 w-full border-t border-dashed border-gray-300 pt-2 flex justify-between px-2 opacity-50 font-['Manrope']">
+          <span className="text-[9px] uppercase font-black text-black tracking-widest">
+            1. Wireless (Air)
           </span>
-          <span className="text-[8px] uppercase font-bold text-[#8729f1]">
+          <span className="text-[9px] uppercase font-black text-[#8729f1] tracking-widest">
             2. Fiber (Cables)
           </span>
         </div>
       </div>
 
-      {/* --- Section 3: Servers (simple next step) --- */}
+      {/* --- Section 3: Servers --- */}
       <div className="space-y-4">
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-base text-gray-600 leading-relaxed">
           A <strong className="text-black">server</strong> is just a powerful
           computer that stores website files (HTML, CSS, images, scripts) and
           sends them back when someone requests them. Most servers live inside{" "}
@@ -146,26 +147,32 @@ export default function TheCloud() {
           packed with machines).
         </p>
 
-        <ul className="list-disc ml-5 space-y-2 text-sm text-gray-600">
+        <ul className="list-disc ml-5 space-y-3 text-base text-gray-700">
           <li>
-            <strong className="text-black uppercase">Physicality:</strong> A lot
-            of the “long distance” travel happens through fiber-optic cables,
-            including cables under the ocean.
+            <strong className="text-black uppercase font-['Manrope'] text-sm">
+              Physicality:
+            </strong>
+            Long-distance travel happens through fiber-optic cables, including
+            those under the ocean.
           </li>
           <li>
-            <strong className="text-black uppercase">Data Centers:</strong>{" "}
-            Warehouses filled with servers that need serious cooling + power.
+            <strong className="text-black uppercase font-['Manrope'] text-sm">
+              Data Centers:
+            </strong>{" "}
+            Warehouses filled with servers that need serious cooling and power.
           </li>
           <li>
-            <strong className="text-black uppercase">The Handshake:</strong>{" "}
+            <strong className="text-black uppercase font-['Manrope'] text-sm">
+              The Handshake:
+            </strong>{" "}
             Your browser (Client) and a Server agree on how to talk before files
             start moving.
           </li>
         </ul>
       </div>
 
-      {/* --- Section 4: The Hook with Cloud Visuals --- */}
-      <div className="relative bg-[#8729f1]/5 p-6 border-l-4 border-[#8729f1] overflow-hidden">
+      {/* --- Section 4: The Hook --- */}
+      <div className="relative bg-[#8729f1]/5 p-6 border-l-4 border-[#8729f1] overflow-hidden my-8">
         <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
           <svg
             width="200"
@@ -180,14 +187,54 @@ export default function TheCloud() {
           </svg>
         </div>
 
-        <h4 className="text-sm font-black uppercase text-black mb-2 tracking-tight z-10 relative">
+        <h4 className="text-base font-bold uppercase text-black mb-2 tracking-tight z-10 relative font-['Manrope']">
           So... is it actually in the clouds?
         </h4>
-        <p className="text-[12px] text-gray-600 mt-2 italic z-10 relative">
-          Technically, <span className="font-bold text-[#8729f1]">Yes.</span>{" "}
-          Wireless signals can carry data through the air, before it routes into
-          physical cables and data centers.
+        <p className="text-base text-gray-600 italic z-10 relative">
+          Technically, <span className="font-bold text-[#8729f1]">No.</span>{" "}
+          Over 99% of international data is carried through undersea cables, not
+          satellites or wireless connections in the air.
         </p>
+      </div>
+
+      <div className="mt-8 pt-8 border-t-2 border-dashed border-gray-200 z-10 relative">
+        <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#8729f1] mb-5 font-['Manrope']">
+          Internet Lore & Fun Facts
+        </h5>
+        <ul className="space-y-4">
+          <li className="text-base text-gray-600">
+            <span className="font-bold text-black font-['Manrope']">
+              Birth Date:
+            </span>{" "}
+            The internet was born in{" "}
+            <span className="text-black font-semibold underline decoration-[#8729f1]/30">
+              1983
+            </span>
+            .
+          </li>
+          <li className="text-base text-gray-600">
+            <span className="font-bold text-black font-['Manrope']">
+              Undersea Depth:
+            </span>{" "}
+            Fiber-optic cables are laid as deep as{" "}
+            <span className="text-black font-semibold">Everest is tall</span>.
+          </li>
+          <li className="text-base text-gray-600">
+            <span className="font-bold text-black font-['Manrope'] font-['Manrope']">
+              First Website:
+            </span>{" "}
+            Launched in 1991, and you can{" "}
+            <a
+              href="http://info.cern.ch/hypertext/WWW/TheProject.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="italic underline decoration-[#8729f1]/40 hover:text-[#8729f1] transition-colors"
+            >
+              still visit it today
+            </a>
+            .
+          </li>
+        </ul>
       </div>
 
       <style jsx>{`

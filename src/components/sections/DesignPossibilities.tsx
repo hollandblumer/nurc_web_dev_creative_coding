@@ -12,6 +12,35 @@ const InstagramPoster = ({ url }: { url: string }) => (
 );
 
 export default function DesignPossibilities() {
+  const inspirationLinks = [
+    { name: "antonin.work", url: "https://www.instagram.com/antonin.work/" },
+    {
+      name: "openprocessing (184331)",
+      url: "https://openprocessing.org/user/184331#sketches",
+    },
+    { name: "holke79", url: "https://www.instagram.com/holke79/" },
+    {
+      name: "bureaubabaparis",
+      url: "https://www.instagram.com/bureaubabaparis/",
+    },
+    {
+      name: "openprocessing (293890)",
+      url: "https://openprocessing.org/user/293890#sketches",
+    },
+    {
+      name: "openprocessing (72194)",
+      url: "https://openprocessing.org/user/72194#sketches",
+    },
+    {
+      name: "openprocessing (65884)",
+      url: "https://openprocessing.org/user/65884#sketches",
+    },
+    { name: "dominicnikolai", url: "https://codepen.io/DominicNikolai" },
+    { name: "prisoner849", url: "https://codepen.io/prisoner849" },
+    { name: "atzedent", url: "https://codepen.io/atzedent" },
+    { name: "lekzd", url: "https://codepen.io/lekzd" },
+  ];
+
   const posterLinks = [
     "https://www.instagram.com/p/DSK4KPHiG8W/",
     "https://www.instagram.com/p/DQQ7cqcDMAK/?img_index=1",
@@ -23,40 +52,47 @@ export default function DesignPossibilities() {
   ];
 
   return (
-    <div className="space-y-4 max-w-3xl mx-auto p-4">
-      {/* Header */}
-      <div className="flex justify-between items-end border-b border-zinc-200 pb-2">
-        <div className="space-y-1">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em]">
-            Design Possibilities
-          </h2>
-          <p className="text-[10px] text-zinc-500 font-mono uppercase tracking-widest">
-            Organic Motion & Creative Coding
-          </p>
-        </div>
-        <div className="text-[10px] font-mono text-zinc-400">2_COL_LAYOUT</div>
-      </div>
+    <div className="space-y-6 text-gray-900 max-w-3xl mx-auto p-4 leading-relaxed">
+      <h3 className="text-xl font-bold border-b pb-2">
+        Inspiration & Accounts to Follow
+      </h3>
 
-      {/* Forced 2-Column Grid */}
-      <div className="grid grid-cols-2 gap-4">
+      <p>
+        Here is a collection of creators and developers pushing the boundaries
+        of creative coding and visual design:
+      </p>
+
+      {/* INSPIRATION LINKS LIST */}
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-6">
+        {inspirationLinks.map((link) => (
+          <li key={link.url}>
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline font-medium flex items-center gap-2"
+            >
+              <span className="text-gray-400">→</span> {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <h3 className="text-xl font-bold border-b pb-2 pt-4">
+        Design Possibilities
+      </h3>
+
+      <p>
+        These examples demonstrate how we can translate motion principles into
+        static and interactive poster layouts.
+      </p>
+
+      {/* POSTER GRID */}
+      <div className="grid grid-cols-2 gap-4 my-8">
         {posterLinks.map((link, index) => (
           <InstagramPoster key={`${link}-${index}`} url={link} />
         ))}
       </div>
-
-      {/* Labels - 2 columns to match the grid */}
-      <ul className="grid grid-cols-2 gap-1 text-[9px] font-mono uppercase tracking-[0.15em]">
-        {["Contour Lines", "Stretchy", "Globby Morphing", "Tapered Lines"].map(
-          (label) => (
-            <li
-              key={label}
-              className="bg-zinc-100 p-2 border-l border-zinc-300 hover:bg-black hover:text-white transition-all cursor-crosshair"
-            >
-              → {label}
-            </li>
-          ),
-        )}
-      </ul>
     </div>
   );
 }

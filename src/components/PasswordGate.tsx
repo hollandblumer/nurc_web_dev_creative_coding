@@ -136,7 +136,7 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
             Web Development and Creative Coding Workshop
           </h1>
           <p className="text-[#B301FF] text-xs tracking-[0.3em] uppercase font-bold opacity-80">
-            by NURC alum Holland Blumer
+            by Holland Blumer
           </p>
         </div>
 
