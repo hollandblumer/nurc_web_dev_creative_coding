@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import WorkshopHero from "./WorkshopHero";
 
 export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
@@ -8,15 +8,28 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const ACCESS_KEY = "CREATIVE";
+  const ACCESS_KEY = "NURC";
 
-  const bgElements = useMemo(() => {
+  type BgEl = {
+    char: string;
+    top: string;
+    left: string;
+    opacity: number;
+    size: number;
+    duration: string;
+    delay: string;
+  };
+
+  const [bgElements, setBgElements] = useState<BgEl[]>([]);
+
+  useEffect(() => {
     const chars = ["0", "1", "+", "-"];
-    const elements = [];
+    const elements: BgEl[] = [];
     const count = 350;
 
     for (let i = 0; i < count; i++) {
-      let left, top;
+      let left = 0;
+      let top = 0;
       let isOverlappingContent = true;
 
       while (isOverlappingContent) {
@@ -41,7 +54,8 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
         delay: `${Math.random() * -20}s`,
       });
     }
-    return elements;
+
+    setBgElements(elements);
   }, []);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,8 +78,6 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
 
   return (
     <div className="fixed inset-0 z-[100] bg-[#1a1a1c] font-mono flex items-center justify-center h-screen w-screen overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.8)_100%)] z-[1]" />
-
       <style jsx>{`
         @keyframes float {
           0% {
@@ -92,9 +104,6 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
           color: #22c55e !important;
           opacity: 0.8 !important;
           text-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
-        }
-        .line-pop {
-          box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
         }
       `}</style>
 
@@ -133,7 +142,7 @@ export default function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
         </div>
 
         {/* Hero Container with "Popping" Lines */}
-        <div className="w-full flex items-center justify-center py-10 border-y border-zinc-100/20 line-pop min-h-[400px]">
+        <div className="w-full flex items-center justify-center py-10 min-h-[400px]">
           <div className="w-full max-w-[450px] flex justify-center">
             <WorkshopHero />
           </div>

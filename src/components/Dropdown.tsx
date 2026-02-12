@@ -15,8 +15,8 @@ export default function Dropdown({
 }: DropdownProps) {
   return (
     <div
-      className={`sub-section border-b border-black/5 mb-4 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] 
-      ${expanded ? "max-h-[2500px]" : "max-h-[60px]"}`}
+      className={`sub-section mb-4 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] 
+  ${expanded ? "max-h-[2500px]" : "max-h-[60px]"}`}
     >
       {/* Header Row - Clicking this triggers the gear animation */}
       <div

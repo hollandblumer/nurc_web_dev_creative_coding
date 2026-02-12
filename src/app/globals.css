@@ -42,7 +42,7 @@ h3,
 }
 
 .sub-section {
-  @apply transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border-b border-black/5 overflow-hidden;
+  @apply transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden;
 }
 
 .details p {
